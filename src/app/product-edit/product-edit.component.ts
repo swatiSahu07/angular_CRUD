@@ -13,11 +13,12 @@ import { Router } from '@angular/router';
 export class ProductEditComponent implements OnInit {
 
 productForm:FormGroup;
-id:string='';
+id:number=null;
 name:string='';
 description:string='';
 price:number=null;
 isLoadingResults = false;
+alert:boolean =false;
 
   constructor(private router: Router,private fb: FormBuilder, private _product: ProductsService) { }
 
@@ -40,8 +41,6 @@ isLoadingResults = false;
     });
     
   }
-
-  
   onFormSubmit(product) {
     // console.log(this.id);
     this.isLoadingResults = true;
@@ -50,14 +49,17 @@ isLoadingResults = false;
       .subscribe(res => {
           let id = res['_id'];
           this.isLoadingResults = false;
-          this.router.navigate(['/products']);
+            this.alert=true;
+          // this.router.navigate(['/products']);
         }, (err) => {
           console.log(err);
           this.isLoadingResults = false;
         }
       );
   }
-
+  closeAlert(){
+    this.alert=false;
+  }
 
 
 }

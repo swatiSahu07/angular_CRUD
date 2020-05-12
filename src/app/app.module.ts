@@ -16,6 +16,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductsService } from './services/products.service';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ProductComponent } from './product/product.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { ProductComponent } from './product/product.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, HttpClientModule,ReactiveFormsModule,StorageServiceModule ,SlimLoadingBarModule
+    FormsModule, HttpClientModule,ReactiveFormsModule,StorageServiceModule ,SlimLoadingBarModule,NgxPaginationModule
     ],
   providers: [ProductsService],
   bootstrap: [AppComponent]

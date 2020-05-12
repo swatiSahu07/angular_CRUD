@@ -1,5 +1,19 @@
-<p>product-edit works!</p>
+<div class="button-row">
+  <h2>Edit Product Details </h2>
+  <hr>
+  <a class="btn btn-secondary" id="back" [routerLink]="['/products']">Product List</a>
+  
+  <br>
+  <br>
+  <!-- <br> -->
+</div>
 <div class="card">
+    <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success !</strong> Your product has been updated successfully.
+      <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <div class="card-body">
       <form [formGroup]="productForm" (ngSubmit)="onFormSubmit(productForm.value)">
         <div class="form-group">

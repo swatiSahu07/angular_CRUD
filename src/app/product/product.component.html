@@ -1,8 +1,11 @@
 <div class="example-container ">
     <div class="button-row">
-        <a class="btn btn-sm btn-info" [routerLink]="['/product/create']">
-            Add New
-        </a>
+        <h2 style="text-align: center;color:#177BFF;margin: 7px 0px;">Product List</h2>
+        <hr>
+
+        <a class="btn btn-info" [routerLink]="['/product/create']"><span class="">Add Poduct</span></a>
+        <br>
+        <br>
     </div>
     <div class="mat-elevation-z8">
         <table class="table table-striped">
@@ -16,17 +19,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let x of data; index as i;">
+                <tr *ngFor="let x of data | paginate: { id: 'listing', itemsPerPage: 5, currentPage:page, totalItems:totalRecords }; index as i;">
                     <td>{{i+1}}</td>
                     <td>{{x.name}}</td>
                     <td>{{x.price}}</td>
                     <td>{{x.updated_at |date}}</td>
                     <td>
-                        <button class="btn btn-sm btn-info" style="margin-left: 20px;" (click)="edit(x)"> Edit</button>
-                        <button class="btn btn-sm btn-danger" style="margin-left: 20px;" (click)="deletePro(x)"> Delete</button>
+                        <button class="btn  btn-info" style="margin-left: 20px;" (click)="edit(x)"> Edit</button>
+                        <button class="btn  btn-danger" style="margin-left: 20px;" (click)="deletePro(x)"> Delete</button>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <div class="text-right">
+            <pagination-controls id="listing" maxSize="5" directionLinks="true" (pageChange)="page=$event"></pagination-controls>
+          </div>
     </div>
 </div>

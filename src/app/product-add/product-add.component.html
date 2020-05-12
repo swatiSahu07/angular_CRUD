@@ -1,46 +1,60 @@
+<div class="button-row">
+  <h2>Add New Product </h2>
+  <hr>
+  <a class="btn btn-secondary " id="back" [routerLink]="['/products']">Product List</a>
+  <br>
+  <br>
+  <!-- <br> -->
+</div>
 <div class="card">
+  <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong> Your product has been added successfully.
+    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   <div class="card-body">
     <form [formGroup]="angForm" novalidate>
       <div class="form-group">
         <label class="col-md-4">Product Name</label>
-        <input type="text" class="form-control" 
-          formControlName="name" 
-          #name />
+        <input type="text" class="form-control" formControlName="name" #name />
       </div>
-      <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+      <div
+        *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)"
+        class="alert alert-danger">
         <div *ngIf="angForm.controls['name'].errors.required">
           Product Name is required.
         </div>
       </div>
       <div class="form-group">
         <label class="col-md-4">Product Description </label>
-        <textarea class="form-control" rows = 7 cols = "5"
-        formControlName="description" 
-        #description></textarea>
+        <textarea class="form-control" rows=7 cols="5" formControlName="description" #description></textarea>
       </div>
-      <div *ngIf="angForm.controls['description'].invalid && (angForm.controls['description'].dirty || angForm.controls['description'].touched)" class="alert alert-danger">
+      <div
+        *ngIf="angForm.controls['description'].invalid && (angForm.controls['description'].dirty || angForm.controls['description'].touched)"
+        class="alert alert-danger">
         <div *ngIf="angForm.controls['description'].errors.required">
           Product Description is required.
         </div>
       </div>
       <div class="form-group">
         <label class="col-md-4">Product Price</label>
-        <input type="text" class="form-control" 
-          formControlName="price" 
-          #price
-        />
+        <input type="text" class="form-control" formControlName="price" #price />
       </div>
-      <div *ngIf="angForm.controls['price'].invalid && (angForm.controls['price'].dirty || angForm.controls['price'].touched)" class="alert alert-danger">
+      <div
+        *ngIf="angForm.controls['price'].invalid && (angForm.controls['price'].dirty || angForm.controls['price'].touched)"
+        class="alert alert-danger">
         <div *ngIf="angForm.controls['price'].errors.required">
           Product Price is required.
         </div>
       </div>
       <div class="form-group">
-        <button  (click) = "addProduct(angForm.value)" type="submit" class="btn btn-primary"
-        [disabled]="angForm.pristine || angForm.invalid" >
+        <button (click)="addProduct(angForm.value)" type="submit" class="btn btn-primary"
+          [disabled]="angForm.pristine || angForm.invalid">
           Create Product
         </button>
       </div>
     </form>
   </div>
 </div>
+
