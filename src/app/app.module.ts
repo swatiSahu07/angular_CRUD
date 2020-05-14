@@ -8,7 +8,6 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PersonalDetailComponent } from './personal-detail/personal-detail.component';
 import { EducationalDetailComponent } from './educational-detail/educational-detail.component';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { ProductGetComponent } from './product-get/product-get.component';
@@ -19,15 +18,15 @@ import { ProductComponent } from './product/product.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    PersonalDetailComponent,
     EducationalDetailComponent,
     ProductAddComponent,
     ProductGetComponent,
     ProductEditComponent,
-    ProductComponent
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
